@@ -1,0 +1,128 @@
+/* Jazmin Ricks personal site.
+   To change the color theme, edit data-theme on the <html> tag in index.html:
+   copper | klein | midnight | original */
+
+/* Warm Paper and Copper */
+:root[data-theme="copper"] {
+  --bg: #FBF7F1;
+  --tile: #FFFFFF;
+  --border: #E7DDD1;
+  --dash: #C9B8A6;
+  --chip-border: #DCCFC1;
+  --heading: #1E1813;
+  --text: #2A211C;
+  --text2: #4F443C;
+  --muted: #6B5F55;
+  --link: #1F6A73;
+  --link-hover: #14505A;
+  --accent: #A24E1C;
+  --accent3: #002FA7;
+  --bar4: #B8A898;
+  --bar5: #8F7F70;
+  --extra: #1F6A73;
+}
+
+/* Klein Light */
+:root[data-theme="klein"] {
+  --bg: #F7F7F4;
+  --tile: #FFFFFF;
+  --border: #DDE0E7;
+  --dash: #B5BBC9;
+  --chip-border: #CDD2DC;
+  --heading: #0B1230;
+  --text: #1B2030;
+  --text2: #3F4759;
+  --muted: #5D6577;
+  --link: #2F5FCC;
+  --link-hover: #002FA7;
+  --accent: #002FA7;
+  --accent3: #C0602B;
+  --bar4: #9AA3B5;
+  --bar5: #7A8499;
+  --extra: #2F5FCC;
+}
+
+/* Midnight Klein */
+:root[data-theme="midnight"] {
+  --bg: #0A1236;
+  --tile: #111C4A;
+  --border: #223170;
+  --dash: #3E509A;
+  --chip-border: #2C3D84;
+  --heading: #FFFFFF;
+  --text: #E9EDFA;
+  --text2: #C5CDEB;
+  --muted: #9EABD6;
+  --link: #7FA2FF;
+  --link-hover: #AFC4FF;
+  --accent: #5B86FF;
+  --accent3: #E39257;
+  --bar4: #8E9BC4;
+  --bar5: #6E7CA8;
+  --extra: #E39257;
+}
+
+/* Instrument Panel (original navy) */
+:root[data-theme="original"] {
+  --bg: #141A2E;
+  --tile: #1D2540;
+  --border: #2E3A5C;
+  --dash: #4A5A86;
+  --chip-border: #3A4870;
+  --heading: #FFFFFF;
+  --text: #E7E9F2;
+  --text2: #C3CBE4;
+  --muted: #9AA5C4;
+  --link: #5BC8D8;
+  --link-hover: #8FDCE8;
+  --accent: #F0A830;
+  --accent3: #D86FA8;
+  --bar4: #8E9BC4;
+  --bar5: #6E7CA8;
+  --extra: #8FA4F0;
+}
+
+
+:root { --gutter: 40px; }
+@media (max-width: 640px) { :root { --gutter: 16px; } }
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--link); }
+a:hover { color: var(--link-hover); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+[hidden] { display: none !important; }
+
+/* tabs */
+.tab { appearance: none; -webkit-appearance: none; font: inherit; cursor: pointer; background: transparent; border: 1px solid transparent; border-bottom: 2px solid transparent; padding: 8px 12px; font-size: 15px; font-weight: 500; color: var(--text2); }
+.tab:hover { color: var(--heading); }
+.tab[aria-selected="true"] { background: var(--tile); border-color: var(--border); border-bottom-color: var(--accent); font-weight: 600; color: var(--heading); }
+
+/* expertise chips and methods */
+.chip { padding: 6px 13px; font-size: 14.5px; border: 1px solid var(--chip-border); background: var(--tile); color: var(--text); transition: opacity .2s, box-shadow .2s, border-color .2s; }
+.chip.is-lit { border-color: var(--accent); background: var(--border); color: var(--heading); font-weight: 600; box-shadow: 0 0 0 1px var(--accent); }
+.method { display: flex; gap: 11px; align-items: center; font-size: 15px; color: var(--text2); transition: opacity .2s; }
+.method.is-lit { color: var(--heading); font-weight: 600; }
+.is-dim { opacity: .4; }
+.dot { flex: 0 0 11px; height: 11px; border-radius: 50%; }
+.dot-q { background: var(--accent); }
+.dot-d { background: var(--link); }
+.dot-t { background: var(--accent3); }
+.method.is-lit .dot-q { box-shadow: 0 0 0 3px var(--border), 0 0 0 4px var(--accent); }
+.method.is-lit .dot-d { box-shadow: 0 0 0 3px var(--border), 0 0 0 4px var(--link); }
+.method.is-lit .dot-t { box-shadow: 0 0 0 3px var(--border), 0 0 0 4px var(--accent3); }
+
+/* project cards */
+.card { appearance: none; -webkit-appearance: none; width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer; background: var(--tile); border: 1px solid var(--border); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; transition: opacity .2s, box-shadow .2s, border-color .2s; }
+.card:hover { border-color: var(--dash); }
+.card.is-active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.cards.has-active .card:not(.is-active) { opacity: .7; }
+
+/* select a skill to see the projects that use it */
+.is-pickable { cursor: pointer; }
+.is-pickable:hover { border-color: var(--accent); }
+.method.is-pickable:hover { color: var(--heading); }
+.is-pickable:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+.card.is-match { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.cards.has-match .card:not(.is-match) { opacity: .35; }
